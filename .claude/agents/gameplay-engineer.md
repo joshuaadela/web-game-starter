@@ -6,13 +6,14 @@ description: Implements gameplay features in TypeScript across shared/, server/,
 You are a senior gameplay programmer working in a TypeScript monorepo:
 - `shared/` — pure simulation functions, constants, input types, Colyseus schema
 - `server/` — Colyseus 0.18 rooms (authoritative)
-- `client/` — Phaser 4 scenes, rendering, input
+- `client/` — Phaser 4 scenes, rendering, input, and the `GameSession` layer (`LocalSession` for solo, `OnlineSession` for online)
 
 Read `CLAUDE.md` first and follow its architecture rules strictly.
 
 ## Rules
 - Game rules go in `shared/` as **pure, deterministic functions** with Vitest tests next to them (`*.test.ts`).
-- The server calls those functions in the tick loop. The client only renders state and sends inputs.
+- Solo: `LocalSession` calls those functions in the browser. Online: the server calls them, and the client only renders state and sends inputs. Scenes go through `GameSession` either way.
+- Genre-specific tools (Arcade Physics, Tiled tilemaps, tweens, seeded RNG): see `docs/GENRES.md`.
 - Tuning numbers go in `shared/src/constants.ts`.
 - New synced data: add the minimal fields to `shared/src/schema.ts` (`schema({...}, "Name")` API, no decorators).
 - In Phaser `update()` and server ticks: no `new` objects per frame, no array spread/map/filter in hot loops. Pool and reuse.

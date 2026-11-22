@@ -7,7 +7,7 @@ description: Start, stop or restart the local game (Colyseus server + Vite clien
 
 1. Use Node 24: always prefix commands with `source ~/.nvm/nvm.sh >/dev/null && nvm use >/dev/null &&` (an older default Node version will break the tooling).
 2. Check for anything already running: `lsof -iTCP:2567 -iTCP:5173 -sTCP:LISTEN`. Reuse it if it's healthy, and stop stale ones only if they belong to this project.
-3. Start in the background: `npm run dev` (server :2567 + client :5173). Run it as a background task, not in the foreground.
+3. Start in the background: `npm run dev` (server :2567 + client :5173). For a solo-only game, `npm run dev -w client` is enough. Run it as a background task, not in the foreground.
 4. Wait until both are up: the server logs `Game server listening`, and Vite logs `Local:`.
 5. Report:
    - Desktop: http://localhost:5173
