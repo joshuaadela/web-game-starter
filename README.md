@@ -58,7 +58,9 @@ client/    Phaser 4 game: scenes, input, session layer (solo/online), game.confi
 server/    Colyseus game server: rooms, authoritative simulation
 shared/    Constants, input types, pure game logic, network schema (+ tests)
 scripts/   smoke-test.ts: headless multiplayer check
-docs/      GDD.md (design document template), GENRES.md (genre recipes)
+docs/      GDD.md (design template), GENRES.md (genre recipes), TEMPLATE-NOTES.md (lessons for the template)
+.github/   CI workflow and PR template
+.template.json  Which template this repo came from (for template-feedback)
 .claude/   Agents and skills for Claude Code
 CLAUDE.md  Project rules Claude follows in every session
 ```
@@ -81,6 +83,7 @@ CLAUDE.md  Project rules Claude follows in every session
 | `dev-run` | Start/stop the local game |
 | `playtest` | Open two clients in Chrome and verify (needs [Claude in Chrome](https://claude.com/chrome)) |
 | `test-build` | Typecheck, tests, build and smoke test, with real output |
+| `template-feedback` | Review a game repo's changes and open a PR here with generic improvements |
 | `netcode-review` | Check multiplayer changes for cheating, lag and bandwidth issues |
 
 ## Start your game
@@ -90,6 +93,17 @@ CLAUDE.md  Project rules Claude follows in every session
 3. Build features one at a time with `/feature-workflow`.
 
 3D games: Phaser is 2D only. Swap the client renderer for Babylon.js or Three.js; the rest of the setup still applies (see `docs/GENRES.md`).
+
+## Improving this template
+
+Games made from this template feed improvements back to it through pull requests:
+
+1. While building a game, Claude logs template problems and lessons in that game's `docs/TEMPLATE-NOTES.md`.
+2. In the game repo, run **`/template-feedback`**. Claude reviews all changes since the game was created and keeps only the generic improvements (fixes, tooling, docs, agents/skills, genre recipes). It shows you the list to choose from.
+3. Claude applies your picks to a fresh copy of the template on a branch, runs all checks, and **opens a pull request here**.
+4. You review it. CI runs the typecheck, tests, build and multiplayer smoke test on every PR. Merge if it's good.
+
+To pull a merged improvement into an existing game, see the end of `.claude/skills/template-feedback/SKILL.md`.
 
 ## Roadmap ideas
 - Genre example branches (platformer, puzzle, card game)

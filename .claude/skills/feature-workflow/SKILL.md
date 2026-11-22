@@ -20,4 +20,5 @@ Keep each feature small enough to finish and playtest in one session. If it's bi
    - rendering or update loop changed → `mobile-perf` agent
 6. **Verify:** the `test-build` skill (typecheck, tests, build, smoke test).
 7. **Playtest:** the `playtest` skill, with screenshots.
-8. **Summarise** for the user in plain language: what changed, how to try it, known limitations, and the suggested next slice. Offer to commit.
+8. **Template lessons:** if anything in the template got in the way or had to be fixed, add an entry to `docs/TEMPLATE-NOTES.md`.
+9. **Summarise** for the user in plain language: what changed, how to try it, known limitations, and the suggested next slice. Offer to commit.

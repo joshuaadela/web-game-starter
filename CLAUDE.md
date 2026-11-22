@@ -52,5 +52,11 @@ Node **24** (`.nvmrc`; 22.12+ minimum). With nvm, run `source ~/.nvm/nvm.sh && n
 - Design questions: use the `game-designer` agent and keep `docs/GDD.md` current.
 - Before saying anything is done: run the `test-build` skill and report real output.
 
+## Improving the template
+This repo is (or was created from) the template in `.template.json`. Feed lessons back:
+- When something **in the template** causes friction (a bug in template code, a wrong API note, a missing script, a misleading agent/skill instruction, an incomplete genre recipe), add an entry to `docs/TEMPLATE-NOTES.md` right away, in the format shown there. Game-specific design and code don't go there.
+- To send lessons back, run the `template-feedback` skill. It reviews all changes, keeps the generic ones, and opens a PR to the template for the developer to approve. Never push to the template's `main` directly.
+- Keep `.template.json` and `docs/TEMPLATE-NOTES.md` when adapting the template.
+
 ## Agents (`.claude/agents/`)
 `game-designer`, `gameplay-engineer`, `netcode-engineer`, `mobile-perf`, `tech-artist`, `ui-touch`.

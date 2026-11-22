@@ -24,6 +24,7 @@ Find the matching recipe in `docs/GENRES.md`. Tell the user in plain language wh
 - `shared/src/constants.ts`: replace the example values with genre-appropriate ones.
 
 ## 4. Trim (only with the user's OK)
+- Never remove `.template.json`, `docs/TEMPLATE-NOTES.md` or the `template-feedback` skill; they send improvements back to the template.
 - Solo only: remove the online mode from config. Keep `server/` unless the user wants it gone (it's useful later for leaderboards and saves). If removed, also drop the smoke test and the `dev` script's server part.
 - Turn-based: replace the tick loop in the room with move validation in `onMessage`; remove the joystick if unused.
 - Non-movement games (puzzle, cards, idle): replace the example `GameScene` with a genre-appropriate scene skeleton. Keep the `GameSession` pattern.
